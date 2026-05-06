@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class TicTacToeApp{
-    
+
     static char[][] board = new char[3][3];
 
     static char player1Symbol;
@@ -15,8 +15,14 @@ public class TicTacToeApp{
 
         int slot = getUserSlot();
 
-        System.out.println("Your Column is "+getColFromSlot(slot));
-        System.out.println("Your Row is "+getRowFromSlot(slot));
+        int row = getRowFromSlot(slot);
+        int col = getColFromSlot(slot);
+
+        if (isValidMove(row, col)) {
+            System.out.println("Valid Move");
+        } else {
+            System.out.println("Invalid Move");
+        }
     }
 
     public static void initializeBoard() {
@@ -89,5 +95,16 @@ public class TicTacToeApp{
         else{
             return 2;
         }
+    }
+    public static boolean isValidMove(int row, int col) {
+
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            return false;
+        }
+        if (board[row][col] != '_') {
+            return false;
+        }
+
+        return true;
     }
 }
