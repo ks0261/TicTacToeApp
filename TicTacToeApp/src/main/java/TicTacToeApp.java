@@ -1,6 +1,31 @@
 public class TicTacToeApp 
 {
+
+    static char[][] board = new char[3][3];
     public static void main(String args[]){
-        System.out.println(" ");
+        initializeBoard();
+        printBoard();
+    }
+
+    static void initializeBoard(){
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                board[i][j] = '-';
+            }
+        }
+    }
+
+    static void printBoard()
+    {
+        System.out.println("------------------");
+        for(int row = 0; row < 3; row++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                System.out.print(board[row][j] + " ");
+            }
+        }
     }
 }
