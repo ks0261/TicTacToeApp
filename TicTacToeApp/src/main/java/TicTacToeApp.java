@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class TicTacToeApp {
+public class TicTacToeApp{
 
     static char[][] board = new char[3][3];
 
@@ -13,6 +13,8 @@ public class TicTacToeApp {
         performToss();
         printBoard();
 
+        int slot = getUserSlot();
+        System.out.println("You selected slot: " + slot);
     }
 
     public static void initializeBoard() {
@@ -54,4 +56,12 @@ public class TicTacToeApp {
         }
     }
 
+    public static int getUserSlot() {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+
+        System.out.print("Enter a slot number (1-9): ");
+        int slot = sc.nextInt();
+
+        return slot;
+    }
 }
